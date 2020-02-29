@@ -1,0 +1,19 @@
+Here is the list of candidates:
+-------------------------------
+Khan
+Correy
+Li
+O'Tooley
+--------Election Results--------
+--------------------------------
+Total Votes: 3521001
+--------------------------------
+-------Breakdown of Votes-------
+--------------------------------
+Khan: 63 percent of votes (2218231)
+Correy: 20 percent of votes (704200)
+Li: 14 percent of votes (492940)
+O'Tooley: 3 percent of votes (105630)
+--------------------------------
+Winner:Khan with 63 percent of votes
+--------------------------------

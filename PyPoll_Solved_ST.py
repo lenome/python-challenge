@@ -40,16 +40,18 @@ with open(data_csv, newline="") as csvfile:
             candidate_votes_list[candidate] = candidate_votes_list[candidate] + 1 #update vote count for candidate
 
 
-print("Here is the list of candidates:")
-print("-------------------------------")
+textfile = open('PyPoll-Results.txt', 'w') #declare output text file and open for editing
+
+print("Here is the list of candidates:"), textfile.write("Here is the list of candidates:\n")
+print("-------------------------------"), textfile.write("-------------------------------\n")
 for x in candidate_list:
-    print(x)
+    print(x), textfile.write("%s\n" % x)
 
 # Print Results to screen
-print("--------Election Results--------")
-print("--------------------------------")
-print(f"Total Votes: {total_votes}")
-print("--------------------------------")
+print("--------Election Results--------"), textfile.write("--------Election Results--------\n")
+print("--------------------------------"), textfile.write("--------------------------------\n")
+print(f"Total Votes: {total_votes}"), textfile.write("Total Votes: %d\n" % total_votes)
+print("--------------------------------"), textfile.write("--------------------------------\n")
 
 #To compute the breakdown by Candidates and print in descending order
 
@@ -58,8 +60,8 @@ print("--------------------------------")
 # Determine the winner by looping through the counts
 candidate_votes_list_sorted = sorted(candidate_votes_list, reverse=True)
 
-print("-------Breakdown of Votes-------")
-print("--------------------------------")
+print("-------Breakdown of Votes-------"), textfile.write("-------Breakdown of Votes-------\n") 
+print("--------------------------------"), textfile.write("--------------------------------\n")
 winning_count = 0 #initialize winning number of votes
 for candidate in candidate_votes_list:
     # call number of votes and compute % of total votes
@@ -75,7 +77,10 @@ for candidate in candidate_votes_list:
     # Print each candidate's voter count and percentage (to terminal)
     # voter_output = f"{candidate}: {vote_percentage:.1f}% ({votes})\n"
     print(f"{candidate}: {candidate_votes_percentage:.2f}% ({candidate_votes})")
+    #textfile.write("%s: %.2f%20 (%d)\n" %(candidate,candidate_votes_percentage,candidate_votes))
+    textfile.write("%s: %.0f percent of votes (%d)\n" % (candidate,candidate_votes_percentage,candidate_votes))
 
-print("--------------------------------")
-print(f"Winner:{winning_candidate} with {winning_candidate_percentage:.0f}% of votes")
-print("--------------------------------")
+print("--------------------------------"), textfile.write("--------------------------------\n")
+print(f"Winner:{winning_candidate} with {winning_candidate_percentage:.0f}% of votes"), 
+textfile.write("Winner:%s with %.0f percent of votes\n" % (winning_candidate,winning_candidate_percentage))
+print("--------------------------------"), textfile.write("--------------------------------\n")
